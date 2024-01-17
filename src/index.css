@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.text-green{
+  color: #9DF781;
+  font-weight: 600;
+}
+
+.text-red{
+  color: #ED6F57;
+  font-weight: 600;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+
+.button {
+  /* display: inline-block; */
+  padding: 12px 24px;
+  /* border: 1px solid #4f4f4f; */
+  /* border-radius: 4px; */
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  cursor: pointer;
+  color: #FFF;
+  z-index: 1;
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #39bda7;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button:hover {
+  color: #ffffff;
+  /* border: 1px solid #39bda7; */
+}
+
+.button:hover:before {
+  top: -35%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:hover:after {
+  top: -45%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+/* CARD DESIGN  */
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: white;
+  border-radius: 8px;
+  background-size: contain;
+}
+
+.flip-img {
+  width: 100%;
+  height: 250px !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.flip-card h1,
+.flip-card h3 {
+  margin: 0;
+  padding: 10px;
+}
+
+.flip-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.flip-card h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+.flip-card h3 {
+  padding-top: 0.5rem;
+}
+
+
+
+
+.home-text{
+  color: #dd8036 !important
+}
+
+
+
+/* .social-link-list {
+  position: fixed;
+  left: 0;
+  width: 70px;
+  transition: all 0.3s linear;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.social-link-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-link-list li {
+  height: 60px;
+  position: relative;
+}
+
+.social-link-list li a {
+  color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  padding-left: 25%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  transition: all 0.3s linear;
+}
+
+.social-link-list li a img {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.social-link-list li a span {
+  display: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding-left: 10px;
+  transition: left 0.3s linear;
+}
+
+.social-link-list li:nth-child(1) a {
+  background: #4267B2;
+}
+
+.social-link-list li:nth-child(2) a {
+  background: #1DA1F2;
+}
+
+.social-link-list li:nth-child(3) a {
+  background: #E1306C;
+}
+
+.social-link-list li:nth-child(4) a {
+  background: #2867B2;
+}
+
+.social-link-list li:nth-child(5) a {
+  background: #333;
+}
+
+.social-link-list li:nth-child(6) a {
+  background: #ff0000;
+}
+
+.social-link-list li a:hover {
+  z-index: 1;
+  width: 200px;
+}
+
+.social-link-list li a:hover span {
+  left: 30%;
+} */
