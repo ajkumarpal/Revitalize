@@ -95,6 +95,7 @@ const Navbar = () => {
 
           {showForm && <Contact closeForm={closeForm} />}
 
+
           <div className=" lg:hidden flex items-center">
             {menu ? (
               <AiOutlineClose size={28} onClick={handleChange} />

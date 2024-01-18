@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
+import UserDeatilsModal from "../models/UserDeatilsModal";
 
 const Footer = () => {
+  const [menu, setMenu] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleChange = () => {
+    setMenu(!menu);
+  };
+
+  const closeMenu = () => {
+    setMenu(false);
+  };
+
+  const openForm = () => {
+    setShowForm(true);
+    setMenu(false);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <div className=" bg-backgroundColor text-white rounded-t-3xl mt-8 md:mt-0">
       <div className="flex flex-col md:flex-row justify-between p-8 md:px-32 px-5">
@@ -43,6 +64,7 @@ const Footer = () => {
             >
               Doctors
             </Link>
+            <button onClick={openForm}> Admin</button>
           </nav>
         </div>
         <div>
@@ -99,6 +121,7 @@ const Footer = () => {
           rights reserved
         </p>
       </div>
+      {showForm && <UserDeatilsModal closeForm={closeForm} />}
     </div>
   );
 };
